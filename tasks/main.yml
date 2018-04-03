@@ -17,3 +17,16 @@
     dest: "/etc/nginx/sites-enabled/{{ site_name }}"
     state: link
   notify: reload nginx
+
+- name: nginx site | open port
+  tags:
+    - iptables
+  iptables:
+    ip_version: "{{ item }}"
+    chain: INPUT
+    protocol: tcp
+    destination_port: "{{ site_port }}"
+    jump: ACCEPT
+  with_items: [ ipv4, ipv6 ]
+  when: "{{ site.port }}"
+  notify: iptables
