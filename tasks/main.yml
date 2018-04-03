@@ -18,15 +18,17 @@
     state: link
   notify: reload nginx
 
-- name: nginx site | open port
+- name: nginx site | open ports
   tags:
     - iptables
   iptables:
-    ip_version: "{{ item }}"
+    ip_version: "{{ item[0] }}"
     chain: INPUT
     protocol: tcp
-    destination_port: "{{ site_port }}"
+    destination_port: "{{ item[1] }}"
     jump: ACCEPT
-  with_items: [ ipv4, ipv6 ]
-  when: "{{ site.port }}"
+  with_nested:
+    - [ ipv4, ipv6 ]
+    - "{{ site_ports }}"
+  when: "{{ site.ports }}"
   notify: iptables

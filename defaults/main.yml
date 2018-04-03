@@ -5,4 +5,4 @@ site_name: ansible
 
 site_config: "{{ inventory_dir }}/.sites/{{ site_name }}"
 site_dir: "/var/www/{{ site_name }}"
-site_port: ''
+site_ports: []
