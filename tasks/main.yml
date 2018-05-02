@@ -5,6 +5,7 @@
     repo: "{{ site_repo }}"
     dest: "{{ site_dir }}"
     depth: 1
+    force: yes
 
 - name: nginx site | site config
   copy:
