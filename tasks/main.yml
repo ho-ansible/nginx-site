@@ -4,6 +4,7 @@
   git:
     repo: "{{ site_repo }}"
     dest: "{{ site_dir }}"
+    depth: 1
 
 - name: nginx site | site config
   copy:
