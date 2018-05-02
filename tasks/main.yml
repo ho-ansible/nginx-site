@@ -30,5 +30,5 @@
   with_nested:
     - [ ipv4, ipv6 ]
     - "{{ site_ports }}"
-  when: "{{ site.ports }}"
+  when: "{{ site_ports }}"
   notify: iptables
