@@ -30,8 +30,5 @@
     protocol: tcp
     destination_port: "{{ item[1] }}"
     jump: ACCEPT
-  with_nested:
-    - [ ipv4, ipv6 ]
-    - "{{ site_ports }}"
-  when: site_ports
+  loop: "{{ q('nested', [ 'ipv4', 'ipv6' ], site_ports) }}"
   notify: iptables
