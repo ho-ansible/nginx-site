@@ -8,18 +8,10 @@
     force: yes
     accept_hostkey: yes
 
-- name: nginx site | site config
-  copy:
-    src: "{{ site_config }}"
-    dest: "/etc/nginx/sites-available/{{ site_name }}"
-  notify: reload nginx
-
-- name: nginx site | enable site
-  file:
-    src: "/etc/nginx/sites-available/{{ site_name }}"
-    dest: "/etc/nginx/sites-enabled/{{ site_name }}"
-    state: link
-  notify: reload nginx
+- include_role:
+    name: nginx
+    tasks_from: site.yml
+  loop: [ "{{ site_name }}" ]
 
 - name: nginx site | open ports
   tags:
