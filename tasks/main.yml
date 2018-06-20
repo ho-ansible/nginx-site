@@ -8,10 +8,12 @@
     force: yes
     accept_hostkey: yes
 
-- include_role:
+- name: nginx site | nginx config
+  vars:
+    site: "{{ site_name }}"
+  include_role:
     name: nginx
     tasks_from: site.yml
-  loop: [ "{{ site_name }}" ]
 
 - name: nginx site | open ports
   tags:
