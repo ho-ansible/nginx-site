@@ -11,6 +11,7 @@
 - name: nginx site | nginx config
   vars:
     site: "{{ site_name }}"
+    site_cfg: "{{ site_config }}"
   include_role:
     name: nginx
     tasks_from: site.yml
