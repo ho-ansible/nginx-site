@@ -6,6 +6,7 @@ Populate content for a site from a git repo
 
 # Role Variables
 + `site_repo`: git URL to content
++ `site_branch` (default: master): which branch to pull from git
 + `site_name`: short identifier
 + `site_config` (default: `{{ inventory_dir }}/.sites/{{ site_name }}`):
   nginx config file
