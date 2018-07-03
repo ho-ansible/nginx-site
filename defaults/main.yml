@@ -1,6 +1,7 @@
 ---
 
 site_repo: "https://github.com/ho-ansible/ansible"
+site_branch: master
 site_name: ansible
 
 site_config: "{{ inventory_dir }}/.sites/{{ site_name }}"
