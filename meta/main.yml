@@ -1,3 +1,22 @@
 ---
+galaxy_info:
+  author: Sean Ho
+  description: Static website served by nginx
+  company: Anchorlytics Consulting
+  license: MIT
+
+  min_ansible_version: 1.2
+
+  platforms:
+   - name: Debian
+     versions:
+     - stable
+     - 9
+
+  galaxy_tags:
+    - www
+    - nginx
+    - git
+
 dependencies:
-  - { role: nginx, tags: [www, nginx] }
+  - role: nginx
