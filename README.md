@@ -1,6 +1,10 @@
 # Ansible role: nginx-site
 Populate content for a site from a git repo
 
+## DEPRECATED
+This functionality has been moved to kubernetes,
+so this ansible role is no longer maintained.
+
 # Dependencies
 + nginx
 
