@@ -1,0 +1,12 @@
+#! /usr/bin/env ansible-playbook
+# Configure static website served by nginx
+# Replace 'nginx_site' with your own inventory group
+---
+- name: nginx-site | static website
+  hosts: nginx_site
+  roles:
+  - role: nginx-site
+    tags:
+    - www
+    - web
+    - nginx
